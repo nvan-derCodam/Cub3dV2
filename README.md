@@ -1,1 +1,1 @@
-# Cub3dV2
+# cub3d
