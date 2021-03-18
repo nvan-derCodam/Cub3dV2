@@ -3,16 +3,22 @@
 /*                                                        ::::::::            */
 /*   libft.h                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/31 12:26:25 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/06 11:29:36 by rpet          ########   odam.nl         */
+/*   Created: 2019/10/31 12:26:25 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 03:05:13 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+
+typedef struct		s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -51,6 +57,21 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
 /*
+**		Bonus
+*/
+
+t_list				*ft_lstnew(void *content);
+t_list				*ft_lstlast(t_list *lst);
+void				ft_lstdelone(t_list *lst, void(*del)(void *));
+void				ft_lstclear(t_list **lst, void (*del)(void *));
+void				ft_lstadd_front(t_list **alst, t_list *new);
+void				ft_lstadd_back(t_list **alst, t_list *new);
+void				ft_lstiter(t_list *lst, void (*f)(void *));
+int					ft_lstsize(t_list *lst);
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *)
+												, void (*del)(void *));
+
+/*
 **		Added after the project.
 */
 
@@ -59,5 +80,11 @@ int					ft_strchr_i(char *str, char c);
 int					ft_strcmp(const char *s1, const char *s2);
 void				ft_strcpy(char *dst, char *src);
 int					ft_isnumeric(const char *s);
+
+char				*ft_convert_to_hex(unsigned long value);
+int					ft_strcontains(char *str, char *set);
+int					ft_abs(int i);
+int					ft_swap(float *x, float *y);
+int					ft_str_only_contains(char *str, char *set);
 
 #endif

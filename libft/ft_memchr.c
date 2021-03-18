@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_memchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/29 13:51:40 by rpet          #+#    #+#                 */
-/*   Updated: 2019/11/13 11:17:51 by rpet          ########   odam.nl         */
+/*   Created: 2019/10/29 13:51:40 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 01:08:22 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*mem;
-	size_t			i;
+	size_t	i;
 
 	mem = (unsigned char*)s;
 	i = 0;

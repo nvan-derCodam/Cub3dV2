@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_putnbr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/06 13:32:02 by rpet          #+#    #+#                 */
-/*   Updated: 2019/11/06 13:45:18 by rpet          ########   odam.nl         */
+/*   Created: 2019/11/06 13:32:02 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 02:04:24 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

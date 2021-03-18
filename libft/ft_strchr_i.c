@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strchr_i.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/07 11:37:23 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/05 16:50:50 by rpet          ########   odam.nl         */
+/*   Created: 2020/02/07 11:37:23 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 02:16:21 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

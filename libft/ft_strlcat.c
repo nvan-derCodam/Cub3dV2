@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strlcat.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/30 11:06:03 by rpet          #+#    #+#                 */
-/*   Updated: 2019/11/14 09:57:27 by rpet          ########   odam.nl         */
+/*   Created: 2019/10/30 11:06:03 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 02:22:51 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,14 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
-	size_t	src_len;
-	size_t	dst_len;
+	size_t	dstl;
+	size_t	srcl;
 
-	i = 0;
-	src_len = ft_strlen(src);
-	dst_len = ft_strlen(dst);
-	if (dst_len < dstsize)
-	{
-		while (dst_len + 1 + i < dstsize && src[i])
-		{
-			dst[dst_len + i] = src[i];
-			i++;
-		}
-		dst[dst_len + i] = '\0';
-		return (src_len + dst_len);
-	}
-	return (src_len + dstsize);
+	dstl = ft_strlen(dst);
+	srcl = ft_strlen(src);
+	if (!dstsize || dstsize < dstl)
+		return (dstl + srcl - (dstl - dstsize));
+	dstsize -= dstl;
+	ft_strlcpy(dst + dstl, src, dstsize);
+	return (dstl + srcl);
 }

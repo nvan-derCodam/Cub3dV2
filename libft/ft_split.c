@@ -3,20 +3,20 @@
 /*                                                        ::::::::            */
 /*   ft_split.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/04 16:33:41 by rpet          #+#    #+#                 */
-/*   Updated: 2019/11/13 18:56:50 by rpet          ########   odam.nl         */
+/*   Created: 2019/11/04 16:33:41 by navn-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 02:10:44 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static int		ft_countstrings(char const *s, char c)
+static int	ft_countstrings(char const *s, char c)
 {
-	int		i;
-	int		amount;
+	size_t	i;
+	size_t	amount;
 
 	i = 0;
 	amount = 0;
@@ -37,10 +37,10 @@ static int		ft_countstrings(char const *s, char c)
 	return (amount);
 }
 
-static char		*ft_create_string(char const *s, char c)
+static char	*ft_create_string(char const *s, char c)
 {
 	char	*string;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != c && s[i] != '\0')
@@ -58,9 +58,9 @@ static char		*ft_create_string(char const *s, char c)
 	return (string);
 }
 
-static int		ft_count_start_string(char const *s, char c)
+static int	ft_count_start_string(char const *s, char c)
 {
-	int		i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] == c && s[i] != '\0')
@@ -68,7 +68,7 @@ static int		ft_count_start_string(char const *s, char c)
 	return (i);
 }
 
-static char		**ft_array(char **result, const char *s, int amount, char c)
+static char	**ft_array(char **result, const char *s, int amount, char c)
 {
 	int		i;
 
@@ -99,8 +99,8 @@ static char		**ft_array(char **result, const char *s, int amount, char c)
 char			**ft_split(char const *s, char c)
 {
 	char	**result;
-	int		amount;
-	int		start;
+	size_t	amount;
+	size_t	start;
 
 	if (s == NULL)
 		return (NULL);

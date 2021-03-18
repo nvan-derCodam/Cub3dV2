@@ -3,16 +3,16 @@
 /*                                                        ::::::::            */
 /*   ft_tolower.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/31 09:19:56 by rpet          #+#    #+#                 */
-/*   Updated: 2019/11/08 09:45:38 by rpet          ########   odam.nl         */
+/*   Created: 2019/10/28 15:31:51 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 02:57:08 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_tolower(int c)
+int	ft_tolower(int c)
 {
-	if (c >= 65 && c <= 90)
-		c = c + 32;
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
 	return (c);
 }

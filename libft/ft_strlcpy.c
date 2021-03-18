@@ -3,17 +3,17 @@
 /*                                                        ::::::::            */
 /*   ft_strlcpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/30 09:28:31 by rpet          #+#    #+#                 */
-/*   Updated: 2019/11/19 16:58:34 by rpet          ########   odam.nl         */
+/*   Created: 2019/10/30 09:28:31 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 02:23:38 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 

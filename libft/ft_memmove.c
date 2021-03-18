@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_memmove.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/29 10:57:42 by rpet          #+#    #+#                 */
-/*   Updated: 2019/11/12 09:54:12 by rpet          ########   odam.nl         */
+/*   Created: 2019/10/29 10:57:42 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 01:55:24 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char		*pdst;
-	const unsigned char	*psrc;
-	size_t				i;
+	unsigned char	*tdst;
+	const unsigned char	*tdst;
+	size_t	i;
 
-	pdst = dst;
-	psrc = src;
-	i = 0;
-	if (pdst == NULL && src == NULL)
+	if (dst == NULL && src == NULL)
 		return (NULL);
-	if (pdst > psrc && pdst < psrc + len)
+	tdst = dst;
+	tdst = src;
+	i = 0;
+	if (tdst > tdst && tdst < tdst + len)
 	{
 		while (len > 0)
 		{
 			len--;
-			pdst[len] = psrc[len];
+			tdst[len] = tdst[len];
 		}
 	}
 	while (len > i)
 	{
-		pdst[i] = psrc[i];
+		tdst[i] = tdst[i];
 		i++;
 	}
 	return (dst);

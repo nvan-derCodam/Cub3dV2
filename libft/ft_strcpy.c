@@ -3,16 +3,16 @@
 /*                                                        ::::::::            */
 /*   ft_strcpy.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/07 14:53:00 by rpet          #+#    #+#                 */
-/*   Updated: 2020/02/07 15:06:43 by rpet          ########   odam.nl         */
+/*   Created: 2020/02/07 14:53:00 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 02:18:27 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_strcpy(char *dst, char *src)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (src[i] != '\0')

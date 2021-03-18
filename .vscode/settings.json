@@ -1,0 +1,17 @@
+{
+	"files.associations": {
+		"__locale": "c",
+		"cub3d.h": "c",
+		"libft.h": "c",
+		"stdlib.h": "c"
+	},
+	"[c]": {
+		"editor.rulers": [
+			34, 45, 9,
+			{
+				"column": 80,
+				"color": "#ff0000"
+			}
+		]
+	}
+}

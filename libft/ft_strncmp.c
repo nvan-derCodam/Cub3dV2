@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strncmp.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/30 15:26:36 by rpet          #+#    #+#                 */
-/*   Updated: 2019/11/01 15:22:44 by rpet          ########   odam.nl         */
+/*   Created: 2019/10/30 15:26:36 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 02:26:42 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char	*str1;
 	unsigned char	*str2;
-	size_t			i;
+	size_t	i;
 
 	str1 = (unsigned char*)s1;
 	str2 = (unsigned char*)s2;

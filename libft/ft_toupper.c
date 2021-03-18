@@ -3,16 +3,16 @@
 /*                                                        ::::::::            */
 /*   ft_toupper.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/31 09:13:20 by rpet          #+#    #+#                 */
-/*   Updated: 2019/11/08 09:45:30 by rpet          ########   odam.nl         */
+/*   Created: 2019/10/28 15:11:38 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 02:57:17 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	if (c >= 97 && c <= 122)
-		c = c - 32;
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
 	return (c);
 }

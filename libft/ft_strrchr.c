@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strrchr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/30 13:30:48 by rpet          #+#    #+#                 */
-/*   Updated: 2019/11/13 16:02:57 by rpet          ########   odam.nl         */
+/*   Created: 2019/10/30 13:30:48 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/18 02:54:14 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
+	size_t	i;
 
 	i = ft_strlen(s);
 	while (i >= 0)
