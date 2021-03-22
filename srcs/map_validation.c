@@ -3,15 +3,15 @@
 /*                                                        ::::::::            */
 /*   map_validation.c                                   :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/18 11:02:54 by rpet          #+#    #+#                 */
-/*   Updated: 2020/06/02 07:54:58 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 /*
 **		Flood fills in 8 directions to check if the map is surrounded by walls.

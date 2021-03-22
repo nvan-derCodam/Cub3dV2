@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   draw_shades.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/06 16:18:30 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/12 17:45:13 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 15:55:04 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 **		Adds shades in map. The further the distance, the darker it becomes.
 */
 
-int		add_shades(int rgb, double distance)
+int	add_shades(int rgb, double distance)
 {
 	double	shade;
 
@@ -23,8 +23,8 @@ int		add_shades(int rgb, double distance)
 		shade = 1;
 	if (shade < 0.3)
 		shade = 0.3;
-	rgb = (((int)((0xFF & rgb >> 16) * shade) << 16) +
-			((int)((0xFF & rgb >> 8) * shade) << 8) +
-			((int)(0xFF & rgb) * shade));
+	rgb = (((int)((0xFF & rgb >> 16) * shade) << 16)
+			+ ((int)((0xFF & rgb >> 8) * shade) << 8)
+			+ (((int)(0xFF & rgb)) * shade));
 	return (rgb);
 }

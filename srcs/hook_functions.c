@@ -3,18 +3,18 @@
 /*                                                        ::::::::            */
 /*   hook_functions.c                                   :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/05 15:25:20 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/06 14:01:49 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 16:13:26 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <math.h>
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
-int		key_press(int keycode, t_data *mlx)
+int	key_press(int keycode, t_data *mlx)
 {
 	if (keycode == ESC_BUTTON)
 		close_game(mlx);
@@ -33,7 +33,7 @@ int		key_press(int keycode, t_data *mlx)
 	return (0);
 }
 
-int		key_release(int keycode, t_data *mlx)
+int	key_release(int keycode, t_data *mlx)
 {
 	if (keycode == KEY_W)
 		mlx->move.w = 0;
@@ -50,7 +50,7 @@ int		key_release(int keycode, t_data *mlx)
 	return (0);
 }
 
-int		mouse_move(int x, int y, t_data *mlx)
+int	mouse_move(int x, int y, t_data *mlx)
 {
 	if (x < 0 || y < 0 || x > mlx->map.res.x || y > mlx->map.res.y)
 		return (0);
@@ -64,7 +64,7 @@ int		mouse_move(int x, int y, t_data *mlx)
 	return (0);
 }
 
-int		close_game(t_data *mlx)
+int	close_game(t_data *mlx)
 {
 	destroy_textures(mlx);
 	free_sprite_array(mlx);

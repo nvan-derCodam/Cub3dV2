@@ -3,20 +3,22 @@
 /*                                                        ::::::::            */
 /*   main.c                                             :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 09:46:50 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/11 07:58:40 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 16:34:45 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <mlx.h>
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 /*
 **		Locates what direction the player faces to and sets starting position.
 */
+		// mlx->ray.dir.y = (mlx->map.map[y][x] == 'N') ? -1 : 1;
+		// mlx->ray.plane.x = (mlx->map.map[y][x] == 'N') ? 0.66 : -0.66;
 
 void	starting_face_direction(t_data *mlx, int y, int x)
 {
@@ -24,15 +26,27 @@ void	starting_face_direction(t_data *mlx, int y, int x)
 	{
 		mlx->ray.dir.x = 0;
 		mlx->ray.plane.y = 0;
-		mlx->ray.dir.y = (mlx->map.map[y][x] == 'N') ? -1 : 1;
-		mlx->ray.plane.x = (mlx->map.map[y][x] == 'N') ? 0.66 : -0.66;
+		if (mlx->map.map[y][x] == 'N')
+			mlx->ray.dir.y = -1;
+		else
+			mlx->ray.dir.y = 1;
+		if (mlx->map.map[y][x] == 'N')
+			mlx->ray.plane.x = 0.66;
+		else
+			mlx->ray.plane.x = -0.66;
 	}
 	else if (mlx->map.map[y][x] == 'W' || mlx->map.map[y][x] == 'E')
 	{
 		mlx->ray.dir.y = 0;
 		mlx->ray.plane.x = 0;
-		mlx->ray.dir.x = (mlx->map.map[y][x] == 'W') ? -1 : 1;
-		mlx->ray.plane.y = (mlx->map.map[y][x] == 'W') ? -0.66 : 0.66;
+		if (mlx->map.map[y][x] == 'W')
+			mlx->ray.dir.y = -1;
+		else
+			mlx->ray.dir.y = 1;
+		if (mlx->map.map[y][x] == 'W')
+			mlx->ray.plane.x = 0.66;
+		else
+			mlx->ray.plane.x = -0.66;
 	}
 	mlx->move.pos.y = y + 0.5;
 	mlx->move.pos.x = x + 0.5;
@@ -67,26 +81,26 @@ void	mlx_setup(t_data *mlx)
 	if (mlx->mlx == NULL)
 		error_handling(MLX_ERROR, mlx);
 	get_correct_window_resolution(mlx);
-	mlx->win = mlx_new_window(mlx->mlx, mlx->map.res.x, mlx->map.res.y, "GAME");
+	mlx->win = mlx_new_window(mlx->mlx, mlx->map.res.x, mlx->map.res.y, "C3D");
 	if (mlx->win == NULL)
 		error_handling(MLX_ERROR, mlx);
 	mlx->img1.img = mlx_new_image(mlx->mlx, mlx->map.res.x, mlx->map.res.y);
 	mlx->img2.img = mlx_new_image(mlx->mlx, mlx->map.res.x, mlx->map.res.y);
 	if (mlx->img1.img == NULL || mlx->img2.img == NULL)
 		error_handling(MLX_ERROR, mlx);
-	mlx->img1.addr = mlx_get_data_addr(mlx->img1.img,
-		&mlx->img1.bits_per_pixel, &mlx->img1.line_length, &mlx->img1.endian);
-	mlx->img2.addr = mlx_get_data_addr(mlx->img2.img,
-		&mlx->img2.bits_per_pixel, &mlx->img2.line_length, &mlx->img2.endian);
+	mlx->img1.addr = mlx_get_data_addr(mlx->img1.img, &mlx->img1.bits_per_pixel,
+			&mlx->img1.line_length, &mlx->img1.endian);
+	mlx->img2.addr = mlx_get_data_addr(mlx->img2.img, &mlx->img2.bits_per_pixel,
+			&mlx->img2.line_length, &mlx->img2.endian);
 	starting_face_direction(mlx, mlx->map.player.y, mlx->map.player.x);
 	mlx->ray.dis_buffer = malloc(sizeof(double) * (mlx->map.res.x));
 	if (mlx->ray.dis_buffer == NULL)
 		error_handling(MALLOC, mlx);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_data		mlx;
+	t_data	mlx;
 
 	if (argc < 2 || argc > 3)
 		error_message(ARGUMENTS);

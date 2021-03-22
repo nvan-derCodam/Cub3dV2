@@ -3,16 +3,16 @@
 /*                                                        ::::::::            */
 /*   render_frame.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/05 13:49:46 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/12 15:06:53 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include <math.h>
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 /*
 **		Constantly checks, calculates and draws the game.

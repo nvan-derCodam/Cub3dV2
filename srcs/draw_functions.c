@@ -3,14 +3,14 @@
 /*                                                        ::::::::            */
 /*   draw_functions.c                                   :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/07 08:09:01 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/12 15:44:58 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 /*
 **		Returns a color value out of a texture coordinate.
@@ -21,26 +21,26 @@ unsigned int	get_pixel(t_image *img, int x, int y)
 	char	*dst;
 
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-	return (*(unsigned int*)dst);
+	return (*(unsigned int *)dst);
 }
 
 /*
 **		Places pixels in the image.
 */
 
-void			put_pixel(t_image *img, int x, int y, int color)
+void	put_pixel(t_image *img, int x, int y, int color)
 {
 	char	*dst;
 
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 /*
 **		Draws the floor and ceiling colors when both solid.
 */
 
-void			draw_solid_floors(t_data *mlx, t_image *cur_img)
+void	draw_solid_floors(t_data *mlx, t_image *cur_img)
 {
 	int		map_y;
 	int		y;
@@ -69,7 +69,7 @@ void			draw_solid_floors(t_data *mlx, t_image *cur_img)
 **		Loops through the texture and draws every pixel.
 */
 
-void			draw_wall_texture(t_data *mlx, int x, t_image *cur_img)
+void	draw_wall_texture(t_data *mlx, int x, t_image *cur_img)
 {
 	int				y;
 	unsigned int	rgb;
@@ -94,18 +94,18 @@ void			draw_wall_texture(t_data *mlx, int x, t_image *cur_img)
 **		Draws and finds the coordinates of the sprite.
 */
 
-void			draw_sprites(t_data *mlx, t_sprite *cur, t_image *cur_img,
-								t_draw_sprite *spr)
+void	draw_sprites(t_data *mlx, t_sprite *cur, t_image *cur_img,
+		t_draw_sprite *spr)
 {
-	int				d;
+	int	d;
 
 	spr->draw.x = spr->draw_start.x;
 	while (spr->draw.x < spr->draw_end.x)
 	{
 		spr->tex.x = (int)(256 * (spr->draw.x - (-spr->size / 2 + spr->screen))
 				* cur->texture.w / spr->size) / 256;
-		if (spr->transform.y > 0 &&
-				spr->transform.y < mlx->ray.dis_buffer[spr->draw.x])
+		if (spr->transform.y > 0
+			&& spr->transform.y < mlx->ray.dis_buffer[spr->draw.x])
 		{
 			spr->draw.y = spr->draw_start.y;
 			while (spr->draw.y < spr->draw_end.y)

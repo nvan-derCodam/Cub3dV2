@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   bmp.c                                              :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/04 08:59:52 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/05 16:08:00 by rpet          ########   odam.nl         */
+/*   Created: 2020/03/04 08:59:52 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/22 14:44:48 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <mlx.h>
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
-int				draw_screenshot(t_data *mlx, int fd)
+int	draw_screenshot(t_data *mlx, int fd)
 {
 	unsigned int	rgb;
 	int				padding;
@@ -47,7 +47,7 @@ int				draw_screenshot(t_data *mlx, int fd)
 **		Creates the header of the screenshot.
 */
 
-void			bmp_header(t_data *mlx, int x, int y, int fd)
+void	bmp_header(t_data *mlx, int x, int y, int fd)
 {
 	unsigned char	*bmp;
 
@@ -76,7 +76,7 @@ void			bmp_header(t_data *mlx, int x, int y, int fd)
 	free(bmp);
 }
 
-void			create_image_data(t_data *mlx)
+void	create_image_data(t_data *mlx)
 {
 	empty_mlx(mlx);
 	mlx->mlx = mlx_init();
@@ -85,15 +85,15 @@ void			create_image_data(t_data *mlx)
 	mlx->img1.img = mlx_new_image(mlx->mlx, mlx->map.res.x, mlx->map.res.y);
 	if (mlx->img1.img == NULL)
 		error_handling(MALLOC, mlx);
-	mlx->img1.addr = mlx_get_data_addr(mlx->img1.img,
-		&mlx->img1.bits_per_pixel, &mlx->img1.line_length, &mlx->img1.endian);
+	mlx->img1.addr = mlx_get_data_addr(mlx->img1.img, &mlx->img1.bits_per_pixel,
+			&mlx->img1.line_length, &mlx->img1.endian);
 	starting_face_direction(mlx, mlx->map.player.y, mlx->map.player.x);
 	mlx->ray.dis_buffer = malloc(sizeof(double) * (mlx->map.res.x));
 	if (mlx->ray.dis_buffer == NULL)
 		error_handling(MALLOC, mlx);
 }
 
-void			make_screenshot(t_data *mlx)
+void	make_screenshot(t_data *mlx)
 {
 	int		fd;
 

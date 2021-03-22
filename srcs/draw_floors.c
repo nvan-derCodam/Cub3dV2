@@ -3,14 +3,14 @@
 /*                                                        ::::::::            */
 /*   draw_floors.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/11 10:30:11 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/11 13:15:30 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 15:49:53 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 /*
 **		Draws the floors a solid color.

@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: rpet <marvin@codam.nl>                       +#+                      #
+#    By: nvan-der <nvan-der@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 13:50:37 by rpet          #+#    #+#                  #
-#    Updated: 2020/06/02 07:55:37 by rpet          ########   odam.nl          #
+#    Updated: 2021/03/22 16:00:07 by nvan-der      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,16 +30,16 @@ LIBFT = libft.a
 LIBFTDIR = libft/
 FRAMEWORK = -framework OpenGL -framework AppKit
 FLAGS = -Wall -Werror -Wextra
-INCLUDES_OTHER = defines.h
+INCLUDES_OTHER = includes/defines.h
 
 ifeq ($(BONUS),1)
 	ALL_OBJS = $(OBJS) $(BONUS_OBJS)
 	OTHER = $(REG_OBJS)
-	INCLUDES = cub3d_bonus.h
+	INCLUDES = includes/cub3d_bonus.h
 else
 	ALL_OBJS = $(OBJS) $(REG_OBJS)
 	OTHER = $(BONUS_OBJS)
-	INCLUDES = cub3d.h
+	INCLUDES = includes/cub3d.h
 endif
 
 .PHONY: all clean fclean re bonus

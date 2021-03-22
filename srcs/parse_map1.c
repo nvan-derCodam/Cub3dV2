@@ -3,17 +3,17 @@
 /*                                                        ::::::::            */
 /*   parse_map1.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/07 11:05:08 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/12 17:35:50 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 /*
 **		Checks, refers and processes the given line.

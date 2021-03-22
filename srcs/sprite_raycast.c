@@ -3,15 +3,15 @@
 /*                                                        ::::::::            */
 /*   sprite_raycast.c                                   :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/27 09:34:50 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/10 08:24:52 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 /*
 **		Sorts the sprites from furthest to closest from the player's perspective

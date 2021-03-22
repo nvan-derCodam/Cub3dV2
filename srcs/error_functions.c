@@ -3,15 +3,15 @@
 /*                                                        ::::::::            */
 /*   error_functions.c                                  :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/26 18:01:18 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/10 16:08:37 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 void	error_message(char *str)
 {

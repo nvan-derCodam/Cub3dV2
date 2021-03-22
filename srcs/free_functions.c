@@ -3,17 +3,17 @@
 /*                                                        ::::::::            */
 /*   free_functions.c                                   :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/03 12:59:01 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/10 15:10:25 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <mlx.h>
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 void	free_array(char **str)
 {

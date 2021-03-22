@@ -3,20 +3,20 @@
 /*                                                        ::::::::            */
 /*   draw_floors_bonus.c                                :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/11 10:30:11 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/12 17:46:26 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 15:49:35 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_bonus.h"
+#include "../includes/cub3d_bonus.h"
 
 /*
 **		Calculates the coordinates of the textures.
 */
 
-void		floors_raycast(t_data *mlx, int y)
+void	floors_raycast(t_data *mlx, int y)
 {
 	t_ray		*ray;
 	t_floor		*floor;
@@ -39,7 +39,7 @@ void		floors_raycast(t_data *mlx, int y)
 **		Finds the pixel color from the given texture.
 */
 
-int			floor_rgb(t_data *mlx, int color, t_texture *tex, int y)
+int		floor_rgb(t_data *mlx, int color, t_texture *tex, int y)
 {
 	t_floor		*floor;
 	int			rgb;
@@ -53,7 +53,7 @@ int			floor_rgb(t_data *mlx, int color, t_texture *tex, int y)
 	return (add_shades(rgb, mlx->map.res.y / (y / 2.0)));
 }
 
-void		calculate_ray_size(t_data *mlx)
+void	calculate_ray_size(t_data *mlx)
 {
 	t_floor		*floor;
 	t_ray		*ray;
@@ -66,7 +66,7 @@ void		calculate_ray_size(t_data *mlx)
 	floor->ray2.y = ray->dir.y + ray->plane.y;
 }
 
-void		draw_texture_pixel(t_data *mlx, t_image *cur_img, int y)
+void	draw_texture_pixel(t_data *mlx, t_image *cur_img, int y)
 {
 	int		rgb;
 	int		x;
@@ -86,7 +86,7 @@ void		draw_texture_pixel(t_data *mlx, t_image *cur_img, int y)
 	}
 }
 
-void		draw_floors(t_data *mlx, t_image *cur_img)
+void	draw_floors(t_data *mlx, t_image *cur_img)
 {
 	int		y;
 	t_floor	*floor;

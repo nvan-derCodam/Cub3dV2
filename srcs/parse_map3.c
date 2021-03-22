@@ -3,15 +3,15 @@
 /*                                                        ::::::::            */
 /*   parse_map3.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/11 15:31:37 by rpet          #+#    #+#                 */
-/*   Updated: 2020/06/02 08:03:30 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
 /*
 **		Checks if every map element received info.
