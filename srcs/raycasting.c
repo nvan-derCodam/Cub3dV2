@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/21 16:52:56 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
+/*   Created: 2020/02/21 16:52:56 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/29 17:21:10 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,22 @@ void	check_draw_coords(t_data *mlx)
 	if (ray->draw_end >= mlx->map.res.y)
 		ray->draw_end = mlx->map.res.y - 1;
 	if (ray->side_hit == 0)
-		ray->side_hit = (ray->ray.x > 0) ? 0 : 2;
+	{
+		if (ray->ray.x > 0)
+			ray->side_hit = 0;
+		else
+			ray->side_hit = 2;
+	}
 	else
-		ray->side_hit = (ray->ray.y > 0) ? 1 : 3;
+	{
+		if (ray->ray.y > 0)
+			ray->side_hit = 1;
+		else
+			ray->side_hit = 3;
+	}
 }
+//^^^ ray->side_hit = (ray->ray.x > 0) ? 0 : 2;
+// ray->side_hit = (ray->ray.y > 0) ? 1 : 3; TODO
 
 /*
 **		Calculates the distance to a wall.
@@ -45,11 +57,11 @@ void	calculate_wall_distance(t_data *mlx, int x)
 
 	ray = &mlx->ray;
 	if (ray->side_hit == 0)
-		ray->perpwalldist = (ray->map.x - mlx->move.pos.x +
-		(1 - ray->step.x) / 2) / ray->ray.x;
+		ray->perpwalldist = (ray->map.x - mlx->move.pos.x
+				+ (1 - ray->step.x) / 2) / ray->ray.x;
 	else
-		ray->perpwalldist = (ray->map.y - mlx->move.pos.y +
-		(1 - ray->step.y) / 2) / ray->ray.y;
+		ray->perpwalldist = (ray->map.y - mlx->move.pos.y
+				+ (1 - ray->step.y) / 2) / ray->ray.y;
 	ray->dis_buffer[x] = ray->perpwalldist;
 }
 

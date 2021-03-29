@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/27 09:34:50 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
+/*   Created: 2020/02/27 09:34:50 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/29 17:22:13 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	calculate_distances(t_data *mlx)
 	i = 0;
 	while (i < mlx->list.amount)
 	{
-		sprite[i]->dis = pow(pos.x - sprite[i]->coords.x, 2) +
-						pow(pos.y - sprite[i]->coords.y, 2);
+		sprite[i]->dis = pow(pos.x - sprite[i]->coords.x, 2)
+			+ pow(pos.y - sprite[i]->coords.y, 2);
 		i++;
 	}
 }
@@ -75,22 +75,30 @@ void	calculate_sprite_depth(t_data *mlx)
 
 	spr = &mlx->draw_sprite;
 	ray = &mlx->ray;
-	spr->inv_det = 1.0 /
-			(ray->plane.x * ray->dir.y - ray->dir.x * ray->plane.y);
-	spr->transform.x = spr->inv_det * (ray->dir.y * spr->sprite.x -
-			ray->dir.x * spr->sprite.y);
-	spr->transform.y = spr->inv_det * (-ray->plane.y * spr->sprite.x +
-			ray->plane.x * spr->sprite.y);
-	spr->screen = (int)((mlx->map.res.x / 2) *
-			(1 + spr->transform.x / spr->transform.y));
+	spr->inv_det
+		= 1.0 / (ray->plane.x * ray->dir.y - ray->dir.x * ray->plane.y);
+	spr->transform.x = spr->inv_det
+		* (ray->dir.y * spr->sprite.x - ray->dir.x * spr->sprite.y);
+	spr->transform.y = spr->inv_det
+		* (-ray->plane.y * spr->sprite.x + ray->plane.x * spr->sprite.y);
+	spr->screen = (int)((mlx->map.res.x / 2)
+			* (1 + spr->transform.x / spr->transform.y));
 	spr->size = (int)(fabs(mlx->map.res.y / spr->transform.y));
 	spr->draw_start.y = -spr->size / 2 + mlx->map.res.y / 2;
-	spr->draw_start.y = (spr->draw_start.y < 0) ? 0 : spr->draw_start.y;
+	//spr->draw_start.y = (spr->draw_start.y < 0) ? 0 : spr->draw_start.y;
+	if (spr->draw_start.y < 0)
+		spr->draw_start.y = 0;
+	else
+		spr->draw_start.y = spr->draw_start.y; //TODO
 	spr->draw_end.y = spr->size / 2 + mlx->map.res.y / 2;
 	if (spr->draw_end.y >= mlx->map.res.y)
 		spr->draw_end.y = mlx->map.res.y - 1;
 	spr->draw_start.x = -spr->size / 2 + spr->screen;
-	spr->draw_start.x = (spr->draw_start.x < 0) ? 0 : spr->draw_start.x;
+	// spr->draw_start.x = (spr->draw_start.x < 0) ? 0 : spr->draw_start.x;
+	if (spr->draw_start.x < 0)
+		spr->draw_start.x = 0;
+	else
+		spr->draw_start.x = spr->draw_start.x;
 	spr->draw_end.x = spr->size / 2 + spr->screen;
 	if (spr->draw_end.x >= mlx->map.res.x)
 		spr->draw_end.x = mlx->map.res.x - 1;

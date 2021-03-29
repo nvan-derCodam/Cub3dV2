@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   defines.h                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/10 13:53:35 by rpet          #+#    #+#                 */
-/*   Updated: 2020/03/10 13:54:42 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/29 17:35:01 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define KEY_D 2
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
+# define KEY_SHIFT 257
 # define ARGUMENTS "Wrong amount of input arguments."
 # define BMP "Second argument needs to be '--save'."
 # define MALLOC "Something went wrong with allocating memory."

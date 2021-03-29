@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/11 10:30:11 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/22 15:49:35 by nvan-der      ########   odam.nl         */
+/*   Created: 2020/03/11 10:30:11 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/29 17:27:59 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	floors_raycast(t_data *mlx, int y)
 **		Finds the pixel color from the given texture.
 */
 
-int		floor_rgb(t_data *mlx, int color, t_texture *tex, int y)
+int	floor_rgb(t_data *mlx, int color, t_texture *tex, int y)
 {
 	t_floor		*floor;
 	int			rgb;

@@ -3,7 +3,7 @@ R 720 540
 F textures/wood.png
 C 255,100,100
 
-NO textures/blue stone.png
+NO textures/bluestone.png
 SO textures/redbrick.png
 WE textures/colorstone.png
 EA textures/eagle.xpm

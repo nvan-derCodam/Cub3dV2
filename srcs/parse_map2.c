@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/10 11:02:18 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
+/*   Created: 2020/02/10 11:02:18 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/29 16:30:46 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	map_resolution(t_data *mlx, char *str)
 	resolution = ft_split(str, ' ');
 	if (resolution == NULL)
 		error_handling(MALLOC, mlx);
-	if (ft_strcmp(resolution[0], "R") != 0 || resolution[3] != NULL ||
-		ft_isnumeric(resolution[1]) == 0 || ft_isnumeric(resolution[2]) == 0)
+	if (ft_strcmp(resolution[0], "R") != 0 || resolution[3] != NULL
+		|| ft_isnumeric(resolution[1]) == 0 || ft_isnumeric(resolution[2]) == 0)
 	{
 		free_array(resolution);
 		error_handling(WRONG_INFO, mlx);
@@ -43,7 +43,7 @@ void	map_resolution(t_data *mlx, char *str)
 **		Converts given color string to viable int.
 */
 
-int		get_color(char *color_line)
+int	get_color(char *color_line)
 {
 	int		color;
 	int		rgb;
@@ -104,7 +104,7 @@ void	read_tex(char **tex, char *str, t_data *mlx)
 	*tex = ft_strdup(str);
 	if (*tex == NULL)
 		error_handling(MALLOC, mlx);
-	if (ft_strcmp(*tex + ft_strlen(*tex) - 4, ".png") != 0 &&
-		ft_strcmp(*tex + ft_strlen(*tex) - 4, ".xpm") != 0)
+	if (ft_strcmp(*tex + ft_strlen(*tex) - 4, ".png") != 0
+		&& ft_strcmp(*tex + ft_strlen(*tex) - 4, ".xpm") != 0)
 		error_handling(WRONG_TEXTURE, mlx);
 }

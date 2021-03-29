@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/11 15:31:37 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
+/*   Created: 2020/02/11 15:31:37 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/29 16:34:30 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	element_validation(t_data *mlx)
 
 	map = &mlx->map;
 	if (map->res.x == 0 || map->res.y == 0 || map->floor_rgb == -1
-	|| map->ceiling_rgb == -1 || map->north_tex == 0 || map->south_tex == 0
-	|| map->west_tex == 0 || map->east_tex == 0 || map->sprite_tex == 0
-	|| map->floor_tex == 0 || map->ceiling_tex == 0)
+		|| map->ceiling_rgb == -1 || map->north_tex == 0 || map->south_tex == 0
+		|| map->west_tex == 0 || map->east_tex == 0 || map->sprite_tex == 0
+		|| map->floor_tex == 0 || map->ceiling_tex == 0)
 		error_handling(NO_INFO, mlx);
 }
 
@@ -110,6 +110,7 @@ char	*find_player_pos(t_data *mlx, char *str)
 **		Main function about creating the map.
 */
 
+	// mlx->map.size.x = (len > mlx->map.size.x) ? len : mlx->map.size.x; TODO
 void	map_information(t_data *mlx, char *line)
 {
 	char	*new_line;
@@ -132,6 +133,9 @@ void	map_information(t_data *mlx, char *line)
 	mlx->map.map = add_line_to_map(mlx->map.map, new_line, mlx->map.size.y);
 	if (mlx->map.map == NULL)
 		error_handling(MALLOC, mlx);
-	mlx->map.size.x = (len > mlx->map.size.x) ? len : mlx->map.size.x;
+	if (len > mlx->map.size.x)
+		mlx->map.size.x = len;
+	else
+		mlx->map.size.x = mlx->map.size.x;
 	mlx->map.size.y++;
 }

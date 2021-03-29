@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/05 13:49:46 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
+/*   Created: 2020/02/05 13:49:46 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/29 17:18:05 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,16 @@
 **		Constantly checks, calculates and draws the game.
 */
 
-int		frame_loop(t_data *mlx)
+//cur_img = (mlx->active_img) ? &mlx->img1 : &mlx->img2; TODO Line 26/27
+int	frame_loop(t_data *mlx)
 {
 	int		x;
 	t_image	*cur_img;
 
-	cur_img = (mlx->active_img) ? &mlx->img1 : &mlx->img2;
+	if (mlx->active_img)
+		cur_img = &mlx->img1;
+	else
+		cur_img = &mlx->img2;
 	draw_floors(mlx, cur_img);
 	x = 0;
 	while (x < mlx->map.res.x)

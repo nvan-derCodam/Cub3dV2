@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/24 09:46:50 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/22 16:34:45 by nvan-der      ########   odam.nl         */
+/*   Created: 2020/01/24 09:46:50 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/29 16:29:27 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 **		Locates what direction the player faces to and sets starting position.
 */
 		// mlx->ray.dir.y = (mlx->map.map[y][x] == 'N') ? -1 : 1;
-		// mlx->ray.plane.x = (mlx->map.map[y][x] == 'N') ? 0.66 : -0.66;
+		// mlx->ray.plane.x = (mlx->map.map[y][x] == 'N') ? 0.66 : -0.66; TODO
 
 void	starting_face_direction(t_data *mlx, int y, int x)
 {

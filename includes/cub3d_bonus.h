@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   cub3d_bonus.h                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/29 14:18:01 by rpet          #+#    #+#                 */
-/*   Updated: 2020/06/02 07:58:26 by rpet          ########   odam.nl         */
+/*   Updated: 2021/03/29 17:34:20 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 # define CUB3D_BONUS_H
 
 # include "defines.h"
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <stdlib.h>
 
 /*
 **		Two structs for vector values.
 */
 
-typedef struct		s_vector_d {
+typedef struct s_vector_d {
 	double			x;
 	double			y;
 }					t_vector_d;
 
-typedef struct		s_vector_i {
+typedef struct s_vector_i {
 	int				x;
 	int				y;
 }					t_vector_i;
@@ -35,7 +35,7 @@ typedef struct		s_vector_i {
 **		Struct for the sprite drawing calculations.
 */
 
-typedef struct		s_draw_sprite {
+typedef struct s_draw_sprite {
 	t_vector_d		sprite;
 	t_vector_d		transform;
 	t_vector_i		draw_start;
@@ -52,7 +52,7 @@ typedef struct		s_draw_sprite {
 **		Struct for the raycasting calculations.
 */
 
-typedef struct		s_ray {
+typedef struct s_ray {
 	int				hit;
 	int				side_hit;
 	int				line_height;
@@ -74,7 +74,7 @@ typedef struct		s_ray {
 **		Struct for the player movement.
 */
 
-typedef struct		s_move {
+typedef struct s_move {
 	int				w;
 	int				s;
 	int				a;
@@ -90,7 +90,7 @@ typedef struct		s_move {
 **		Struct when a new image is created.
 */
 
-typedef struct		s_image {
+typedef struct s_image {
 	void			*img;
 	char			*addr;
 	int				bits_per_pixel;
@@ -102,7 +102,7 @@ typedef struct		s_image {
 **		Struct for the floor textures;
 */
 
-typedef struct		s_floor {
+typedef struct s_floor {
 	t_vector_d		ray1;
 	t_vector_d		ray2;
 	t_vector_d		step;
@@ -117,7 +117,7 @@ typedef struct		s_floor {
 **		Struct for information about a texture.
 */
 
-typedef struct		s_texture {
+typedef struct s_texture {
 	t_image			img;
 	char			*path;
 	int				w;
@@ -128,7 +128,7 @@ typedef struct		s_texture {
 **		Struct for a list of texture structs.
 */
 
-typedef struct		s_list_tex {
+typedef struct s_list_tex {
 	t_texture		north;
 	t_texture		south;
 	t_texture		west;
@@ -142,7 +142,7 @@ typedef struct		s_list_tex {
 **		Struct information for every individual sprite.
 */
 
-typedef struct		s_sprite {
+typedef struct s_sprite {
 	t_vector_d		coords;
 	t_texture		texture;
 	double			dis;
@@ -152,7 +152,7 @@ typedef struct		s_sprite {
 **		Struct for a list of sprites.
 */
 
-typedef struct		s_list_sprite {
+typedef struct s_list_sprite {
 	int				amount;
 	t_sprite		**sprites;
 }					t_list_sprite;
@@ -161,7 +161,7 @@ typedef struct		s_list_sprite {
 **		Struct for texture raycasting calculations.
 */
 
-typedef struct		s_ray_tex {
+typedef struct s_ray_tex {
 	double			step;
 	double			tex_pos;
 	double			wall_x;
@@ -172,7 +172,7 @@ typedef struct		s_ray_tex {
 **		Struct for reading out a .cub file.
 */
 
-typedef struct		s_map {
+typedef struct s_map {
 	t_vector_i		player;
 	t_vector_i		res;
 	t_vector_i		size;
@@ -195,7 +195,7 @@ typedef struct		s_map {
 **		The main struct.
 */
 
-typedef struct		s_data {
+typedef struct s_data {
 	void			*mlx;
 	void			*win;
 	t_image			img1;
@@ -283,7 +283,7 @@ void				put_pixel(t_image *img, int x, int y, int color);
 void				draw_solid_floors(t_data *mlx, t_image *cur_img);
 void				draw_wall_texture(t_data *mlx, int x, t_image *cur_img);
 void				draw_sprites(t_data *mlx, t_sprite *cur,
-										t_image *cur_img, t_draw_sprite *spr);
+						t_image *cur_img, t_draw_sprite *spr);
 
 /*
 **		Hook functions.

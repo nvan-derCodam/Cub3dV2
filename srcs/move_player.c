@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/21 11:31:08 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
+/*   Created: 2020/02/21 11:31:08 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/29 17:49:37 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	rotate_player(t_data *mlx, double dir)
 
 void	move_player(t_data *mlx)
 {
-	mlx->move.move_speed = 0.08;
 	mlx->move.rot_speed = 0.04;
 	if (mlx->move.w == 1)
 		move_forward_or_backward(mlx, mlx->move.move_speed);

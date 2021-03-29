@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/25 08:09:08 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
+/*   Created: 2020/02/25 08:09:08 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/29 17:16:57 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_texture	*get_wall_texture(t_data *mlx)
 **		Texture raycasting algorithm. Locates the texture.
 */
 
-void		calculate_texture(t_data *mlx)
+void	calculate_texture(t_data *mlx)
 {
 	t_texture	*cur_tex;
 	t_ray		*ray;
@@ -76,7 +76,7 @@ t_texture	*select_texture_img(t_data *mlx, int i)
 **		Converts texture to image.
 */
 
-void		convert_to_image(t_data *mlx, t_texture *tex)
+void	convert_to_image(t_data *mlx, t_texture *tex)
 {
 	if (ft_strcmp(tex->path + ft_strlen(tex->path) - 4, ".png") == 0)
 		tex->img.img = mlx_png_file_to_image(mlx->mlx, tex->path,
@@ -87,14 +87,14 @@ void		convert_to_image(t_data *mlx, t_texture *tex)
 	if (tex->img.img == NULL)
 		error_handling(TEXTURE_ERROR, mlx);
 	tex->img.addr = mlx_get_data_addr(tex->img.img,
-		&tex->img.bits_per_pixel, &tex->img.line_length, &tex->img.endian);
+			&tex->img.bits_per_pixel, &tex->img.line_length, &tex->img.endian);
 }
 
 /*
 **		Creates an image for every available texture.
 */
 
-void		texture_setup(t_data *mlx)
+void	texture_setup(t_data *mlx)
 {
 	int			i;
 	t_texture	*cur;

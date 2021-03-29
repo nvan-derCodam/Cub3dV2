@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/27 10:58:07 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
+/*   Created: 2020/02/27 10:58:07 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/29 17:16:37 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_sprite	*create_new_sprite(t_data *mlx, int y, int x)
 **		Loops through the map. Adds the sprite to the struct when found.
 */
 
-void		locate_sprites(t_data *mlx)
+void	locate_sprites(t_data *mlx)
 {
 	t_sprite	*sprite;
 	int			y;
@@ -85,7 +85,7 @@ void		locate_sprites(t_data *mlx)
 **		Main functions for sprites setup.
 */
 
-void		sprite_setup(t_data *mlx)
+void	sprite_setup(t_data *mlx)
 {
 	mlx->list.sprites = malloc(sizeof(t_sprite *));
 	if (mlx->list.sprites == NULL)

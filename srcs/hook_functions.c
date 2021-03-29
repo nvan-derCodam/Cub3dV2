@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/05 15:25:20 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/22 16:13:26 by nvan-der      ########   odam.nl         */
+/*   Created: 2020/02/05 15:25:20 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/29 17:45:06 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	key_press(int keycode, t_data *mlx)
 		mlx->move.left = 1;
 	if (keycode == KEY_RIGHT)
 		mlx->move.right = 1;
+	if (keycode == KEY_SHIFT)
+		mlx->move.move_speed = 0.08;
 	return (0);
 }
 
@@ -47,6 +49,8 @@ int	key_release(int keycode, t_data *mlx)
 		mlx->move.left = 0;
 	if (keycode == KEY_RIGHT)
 		mlx->move.right = 0;
+	if (keycode == KEY_SHIFT)
+		mlx->move.move_speed = 0.06;
 	return (0);
 }
 

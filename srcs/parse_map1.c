@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/07 11:05:08 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/22 15:56:37 by nvan-der      ########   odam.nl         */
+/*   Created: 2020/02/07 11:05:08 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/03/29 16:35:30 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,18 @@
 **		Checks, refers and processes the given line.
 */
 
+		// mlx->map.check = (mlx->map.check == 1) ? 2 : mlx->map.check; TODO
 void	check_valid_info(t_data *mlx, char *line)
 {
 	if (*line == ' ' || *(line + ft_strlen(line) - 1) == ' ')
 		element_validation(mlx);
 	if (*line == '\0')
-		mlx->map.check = (mlx->map.check == 1) ? 2 : mlx->map.check;
+	{
+		if (mlx->map.check == 1)
+			mlx->map.check = 2;
+		else
+			mlx->map.check = mlx->map.check;
+	}
 	else if (*line == 'R')
 		map_resolution(mlx, line);
 	else if (*line == 'F')
@@ -49,7 +55,7 @@ void	check_valid_info(t_data *mlx, char *line)
 **		Processes the given line. Checks if it's valid.
 */
 
-int		process_cub_info(t_data *mlx, char *str)
+int	process_cub_info(t_data *mlx, char *str)
 {
 	int		i;
 
@@ -81,7 +87,7 @@ int		process_cub_info(t_data *mlx, char *str)
 **		Get next line.
 */
 
-int		read_cub_file(t_data *mlx, int fd)
+int	read_cub_file(t_data *mlx, int fd)
 {
 	static char	str[BUFF_SIZE + 1];
 	int			ret;

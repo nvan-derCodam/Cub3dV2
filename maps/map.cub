@@ -2,10 +2,10 @@ R 640 480
 F 255,100,100
 C 100,100,255
 
-NO textures/blue stone.png
+NO textures/bluestone.png
 SO textures/redbrick.png
 WE textures/colorstone.png
-EA textures/ea gle.png
+EA textures/eagle.png
 
 S textures/pillar.png
 
