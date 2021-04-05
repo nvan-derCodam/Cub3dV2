@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: rpet <marvin@codam.nl>                       +#+                      #
+#    By: nvan-der <nvan-der@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2019/10/28 14:42:36 by rpet          #+#    #+#                  #
-#    Updated: 2021/03/22 14:35:46 by nvan-der      ########   odam.nl          #
+#    Created: 2019/10/28 14:42:36 by nvan-der      #+#    #+#                  #
+#    Updated: 2021/04/05 10:44:29 by nvan-der      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 

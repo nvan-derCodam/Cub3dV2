@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: nvan-der <nvan-der@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2020/01/23 13:50:37 by rpet          #+#    #+#                  #
-#    Updated: 2021/03/22 16:00:07 by nvan-der      ########   odam.nl          #
+#    Created: 2020/01/23 13:50:37 by nvan-der      #+#    #+#                  #
+#    Updated: 2021/04/05 11:27:49 by nvan-der      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJSDIR = objs/
 _OBJS = main.o render_frame.o hook_functions.o move_player.o free_functions.o \
 	   raycasting.o error_functions.o sprite_setup.o draw_functions.o \
 	   sprite_raycast.o parse_map1.o parse_map3.o map_validation.o \
-	   empty_struct_functions.o bmp.o draw_shades.o texture_functions.o
+	   empty_struct_functions.o bmp.o draw_shades.o texture_functions.o main_2.o
 OBJS = $(addprefix $(OBJSDIR),$(_OBJS))
 _REG_OBJS = parse_map2.o draw_floors.o
 REG_OBJS = $(addprefix $(OBJSDIR),$(_REG_OBJS))
@@ -42,7 +42,7 @@ else
 	INCLUDES = includes/cub3d.h
 endif
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean sclean fclean sre re be bonus
 
 all: $(NAME)
 
@@ -65,12 +65,20 @@ clean:
 		cd $(LIBFTDIR) && make clean
 		cd $(MLXDIR) && make clean
 
+sclean: clean
+	rm -f $(NAME)
+	rm -f $(LIBFT)
+
 fclean: clean
 		rm -f $(NAME)
 		rm -f $(LIBFT)
 		rm -f $(MLXDYL)
 
 re: fclean all
+
+sre: sclean all
+
+bre: fclean bonus
 
 bonus:
 		@make BONUS=1

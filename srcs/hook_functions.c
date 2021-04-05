@@ -6,7 +6,7 @@
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/05 15:25:20 by nvan-der      #+#    #+#                 */
-/*   Updated: 2021/03/29 17:45:06 by nvan-der      ########   odam.nl         */
+/*   Updated: 2021/04/05 11:15:03 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	key_press(int keycode, t_data *mlx)
 	if (keycode == KEY_RIGHT)
 		mlx->move.right = 1;
 	if (keycode == KEY_SHIFT)
-		mlx->move.move_speed = 0.08;
+		mlx->move.shift = 1;
 	return (0);
 }
 
@@ -50,7 +50,7 @@ int	key_release(int keycode, t_data *mlx)
 	if (keycode == KEY_RIGHT)
 		mlx->move.right = 0;
 	if (keycode == KEY_SHIFT)
-		mlx->move.move_speed = 0.06;
+		mlx->move.shift = 0;
 	return (0);
 }
 

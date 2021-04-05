@@ -6,7 +6,7 @@
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/29 14:18:01 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/29 17:32:46 by nvan-der      ########   odam.nl         */
+/*   Updated: 2021/04/05 16:28:05 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef struct s_move {
 	int				d;
 	int				left;
 	int				right;
+	int				shift;
 	double			move_speed;
 	double			rot_speed;
 	t_vector_d		pos;
@@ -224,6 +225,8 @@ void				screenshot_frame_loop(t_data *mlx);
 */
 
 void				starting_face_direction(t_data *mlx, int y, int x);
+void				set_face_direction_NS(t_data *mlx, int y, int x);
+void				set_face_direction_WE(t_data *mlx, int y, int x);
 void				get_correct_window_resolution(t_data *mlx);
 void				mlx_setup(t_data *mlx);
 
@@ -245,6 +248,7 @@ void				make_screenshot(t_data *mlx);
 void				sort_sprites(t_data *mlx);
 void				calculate_distances(t_data *mlx);
 void				calculate_sprite_depth(t_data *mlx);
+void				calculate_sprite_depth_2(t_data *mlx);
 void				sprite_engine(t_data *mlx, t_image *cur_img);
 
 t_sprite			**add_sprite_to_array(t_data *mlx, t_sprite *new_sprite);
@@ -318,6 +322,7 @@ void				move_player(t_data *mlx);
 */
 
 void				check_valid_info(t_data *mlx, char *line);
+void				check_valid_info_check(t_data *mlx);
 int					process_cub_info(t_data *mlx, char *str);
 int					read_cub_file(t_data *mlx, int fd);
 void				parse_map(t_data *mlx, char *str);

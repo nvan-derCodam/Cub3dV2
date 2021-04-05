@@ -6,7 +6,7 @@
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/24 09:46:50 by nvan-der      #+#    #+#                 */
-/*   Updated: 2021/03/29 16:29:27 by nvan-der      ########   odam.nl         */
+/*   Updated: 2021/04/05 13:25:59 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,16 @@
 /*
 **		Locates what direction the player faces to and sets starting position.
 */
-		// mlx->ray.dir.y = (mlx->map.map[y][x] == 'N') ? -1 : 1;
-		// mlx->ray.plane.x = (mlx->map.map[y][x] == 'N') ? 0.66 : -0.66; TODO
 
 void	starting_face_direction(t_data *mlx, int y, int x)
 {
 	if (mlx->map.map[y][x] == 'N' || mlx->map.map[y][x] == 'S')
 	{
-		mlx->ray.dir.x = 0;
-		mlx->ray.plane.y = 0;
-		if (mlx->map.map[y][x] == 'N')
-			mlx->ray.dir.y = -1;
-		else
-			mlx->ray.dir.y = 1;
-		if (mlx->map.map[y][x] == 'N')
-			mlx->ray.plane.x = 0.66;
-		else
-			mlx->ray.plane.x = -0.66;
+		set_face_direction_NS(mlx, mlx->map.player.y, mlx->map.player.x);
 	}
 	else if (mlx->map.map[y][x] == 'W' || mlx->map.map[y][x] == 'E')
 	{
-		mlx->ray.dir.y = 0;
-		mlx->ray.plane.x = 0;
-		if (mlx->map.map[y][x] == 'W')
-			mlx->ray.dir.y = -1;
-		else
-			mlx->ray.dir.y = 1;
-		if (mlx->map.map[y][x] == 'W')
-			mlx->ray.plane.x = 0.66;
-		else
-			mlx->ray.plane.x = -0.66;
+		set_face_direction_WE(mlx, mlx->map.player.y, mlx->map.player.x);
 	}
 	mlx->move.pos.y = y + 0.5;
 	mlx->move.pos.x = x + 0.5;
@@ -60,8 +40,8 @@ void	starting_face_direction(t_data *mlx, int y, int x)
 
 void	get_correct_window_resolution(t_data *mlx)
 {
-	int		max_x;
-	int		max_y;
+	int	max_x;
+	int	max_y;
 
 	mlx_get_screen_size(&mlx, &max_x, &max_y);
 	if (mlx->map.res.x > max_x)

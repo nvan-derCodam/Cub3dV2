@@ -7,7 +7,7 @@
 	},
 	"[c]": {
 		"editor.rulers": [
-			34, 45, 9, 80
+			80
 			{
 				"column": 80,
 				"color": "#ff0000"
