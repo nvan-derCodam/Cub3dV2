@@ -6,7 +6,7 @@
 #    By: nvan-der <nvan-der@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 14:42:36 by nvan-der      #+#    #+#                  #
-#    Updated: 2021/04/05 10:44:29 by nvan-der      ########   odam.nl          #
+#    Updated: 2021/04/12 16:37:50 by nvan-der      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,11 +41,13 @@ $(NAME): $(OBJS)
 
 clean:
 	@ rm -f $(OBJS)
+	@echo "\nDeleted LIBFT objects\n"
 
 fclean: clean
 	@ rm -f $(NAME)
 	@echo "\nDeleted $(NAME)\n"
 re: 
+	@echo Remaking$(LIBFT)
 	@ $(MAKE) fclean
 	@ $(MAKE) all
 
