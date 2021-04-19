@@ -6,18 +6,18 @@
 #    By: nvan-der <nvan-der@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 13:50:37 by nvan-der      #+#    #+#                  #
-#    Updated: 2021/04/12 17:48:47 by nvan-der      ########   odam.nl          #
+#    Updated: 2021/04/19 17:05:09 by nvan-der      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 SRCSDIR = srcs/
 OBJSDIR = objs/
-_OBJS = main.o render_frame.o hook_functions.o move_player.o free_functions.o \
-	   raycasting.o error_functions.o sprite_setup.o draw_functions.o \
-	   sprite_raycast.o parse_map1.o parse_map3.o map_validation.o \
-	   empty_struct_functions.o bmp.o draw_shades.o texture_functions.o main_2.o
-OBJS = $(addprefix $(OBJSDIR),$(_OBJS))
+_OBJS = main render_frame hook_functions move_player free_functions raycasting \
+		error_functions sprite_setup draw_functions sprite_raycast parse_map1 \
+		parse_map3 map_validation empty_struct_functions bmp draw_shades \
+		texture_functions main_2
+OBJS = $(addsuffix .o, $(addprefix $(OBJSDIR),$(_OBJS)))
 _REG_OBJS = parse_map2.o draw_floors.o
 REG_OBJS = $(addprefix $(OBJSDIR),$(_REG_OBJS))
 _BONUS_OBJS = parse_map2_bonus.o draw_floors_bonus.o
@@ -45,44 +45,59 @@ endif
 
 all: $(NAME)
 
-# $(OBJSDIR)%.o: $(SRCSDIR)%.c $(INCLUDES_HEADER) $(INCLUDES)
 $(OBJSDIR)%.o: $(SRCSDIR)%.c $(INCLUDES)
-		@mkdir -p $(OBJSDIR)$(dir $*)
-		@$(CC) -I$(INCLUDES_HEADER) -I$(INCLUDES) -Imlx -c $(CFLAGS) -o $@ $<
+	@mkdir -p $(OBJSDIR)$(dir $*)
+	@$(CC) -Imlx -c $(CFLAGS) -o $@ $<
 
 $(MLXDYL):
-		cd $(MLXDIR) && make && mv $(MLXDYL) ..
+	@echo "\nMaking $(MLXDYL)\n"
+	@cd $(MLXDIR) && make && mv $(MLXDYL) ..
 
 $(LIBFT):
-		cd $(LIBFTDIR) && make && mv $(LIBFT) ..
+	@echo "\nMaking $(LIBFT)\n"
+	@cd $(LIBFTDIR) && make && mv $(LIBFT) ..
 
 $(NAME): $(MLXDYL) $(LIBFT) $(ALL_OBJS)
-		rm -f $(OTHER)
-		$(CC) -L. -lmlx -lft $(FRAMEWORK) -o $(NAME) $(ALL_OBJS)
+	@echo "\nMaking Objects\n"
+	@echo "\nMaking $(NAME) executable\n"
+	@rm -f $(OTHER)
+	@$(CC) -L. -lmlx -lft $(FRAMEWORK) -o $(NAME) $(ALL_OBJS)
 
 clean:
-		@rm -f $(OBJS) $(REG_OBJS) $(BONUS_OBJS)
-		@$(MAKE) -C libft/ clean
-		@$(MAKE) -C mlx/ clean
-		@echo "\nDeleted SOURCE objects\n"
+	@echo "\nDeleted SOURCE Objects\n"
+	@rm -f $(OBJS) $(REG_OBJS) $(BONUS_OBJS)
+	@$(MAKE) -C libft/ clean
+	@$(MAKE) -C mlx/ clean
 		
 
-sclean: clean
-	rm -f $(NAME)
-	rm -f $(LIBFT)
+sclean:
+	@echo "\nDeleted $(NAME) and $(LIBFT)\n"
+	@rm -f $(NAME)
+	@rm -f $(LIBFT)
+	@$(MAKE) clean
 
-fclean: clean
-		rm -f $(NAME)
-		rm -f $(LIBFT)
-		rm -f $(MLXDYL)
+fclean:
+	@echo "\nDeleted $(MLXDYL)\n"
+	@rm -f $(MLXDYL)
+	@$(MAKE) sclean
 
-re: fclean all
+re:
+	@echo "\nFull remake of: $(NAME)\n"
+	@$(MAKE) fclean
+	@$(MAKE) all
 
-sre: sclean all
+sre:
+	@echo "\Semi remake of: $(NAME) and $(LIBFT)\n"
+	@$(MAKE) sclean
+	@$(MAKE) all
 
-bre: fclean bonus
+bre:
+	@echo "\nFull remake of: $(NAME) Bonus\n"
+	@$(MAKE) fclean
+	@$(MAKE) bonus
 
 bonus:
-		@make BONUS=1
+		@echo "\nMaking $(NAME) Bonus\n"
+		@$(MAKE) BONUS=1
 
-.PHONY: all clean sclean fclean sre re be bonus
+.PHONY: all clean sclean fclean sre re bre bonus
