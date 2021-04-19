@@ -6,7 +6,7 @@
 #    By: nvan-der <nvan-der@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 13:50:37 by nvan-der      #+#    #+#                  #
-#    Updated: 2021/04/19 17:05:09 by nvan-der      ########   odam.nl          #
+#    Updated: 2021/04/19 17:10:19 by nvan-der      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,10 @@ _OBJS = main render_frame hook_functions move_player free_functions raycasting \
 		parse_map3 map_validation empty_struct_functions bmp draw_shades \
 		texture_functions main_2
 OBJS = $(addsuffix .o, $(addprefix $(OBJSDIR),$(_OBJS)))
-_REG_OBJS = parse_map2.o draw_floors.o
-REG_OBJS = $(addprefix $(OBJSDIR),$(_REG_OBJS))
-_BONUS_OBJS = parse_map2_bonus.o draw_floors_bonus.o
-BONUS_OBJS = $(addprefix $(OBJSDIR),$(_BONUS_OBJS))
+_REG_OBJS = parse_map2 draw_floors
+REG_OBJS = $(addsuffix .o, $(addprefix $(OBJSDIR),$(_REG_OBJS)))
+_BONUS_OBJS = parse_map2_bonus draw_floors_bonus
+BONUS_OBJS = $(addsuffix .o, $(addprefix $(OBJSDIR),$(_BONUS_OBJS)))
 
 MLXDYL = libmlx.dylib
 MLXDIR = mlx/
