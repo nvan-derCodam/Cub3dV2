@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_memcpy.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: rpet <marvin@codam.nl>                       +#+                     */
+/*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/29 09:46:43 by rpet          #+#    #+#                 */
-/*   Updated: 2021/03/18 01:41:16 by nvan-der      ########   odam.nl         */
+/*   Created: 2019/10/29 09:46:43 by nvan-der      #+#    #+#                 */
+/*   Updated: 2021/04/26 09:03:23 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -6,49 +6,50 @@
 #    By: nvan-der <nvan-der@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 14:42:36 by nvan-der      #+#    #+#                  #
-#    Updated: 2021/04/12 16:37:50 by nvan-der      ########   odam.nl          #
+#    Updated: 2021/04/26 08:41:12 by nvan-der      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-HEADER_FILES = libft.h
-SRCS_FILES = ft_strlen.c ft_atoi.c ft_tolower.c ft_isalpha.c ft_isdigit.c \
-	ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c ft_strncmp.c \
-	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
-	ft_memcmp.c ft_strchr.c ft_strlcpy.c ft_strlcat.c ft_strrchr.c ft_abs.c \
-	ft_strnstr.c ft_calloc.c ft_strdup.c ft_putchar_fd.c ft_putstr_fd.c \
-	ft_putnbr_fd.c ft_putendl_fd.c ft_strtrim.c ft_itoa.c ft_strmapi.c \
-	ft_strjoin.c ft_substr.c ft_split.c ft_lstnew.c ft_lstsize.c \
-	ft_lstadd_front.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c\
-	ft_lstiter.c ft_lstmap.c ft_lstclear.c ft_swap.c ft_contains.c \
-	ft_str_contains_any.c ft_convert_to_hex.c ft_intlen.c ft_isnumeric.c \
-	ft_strchr_i.c ft_strcmp.c ft_strcpy.c
-SRCS = $(addprefix srcs/, $(SRCS_FILES))
-OBJS = $(SRCS:.c=.o)
+SRCSDIR = srcs/
+OBJSDIR = objs/
+_OBJS = ft_strlen ft_atoi ft_tolower ft_isalpha ft_isdigit \
+	ft_isalnum ft_isascii ft_isprint ft_toupper ft_strncmp \
+	ft_memset ft_bzero ft_memcpy ft_memccpy ft_memmove ft_memchr \
+	ft_memcmp ft_strchr ft_strlcpy ft_strlcat ft_strrchr ft_abs \
+	ft_strnstr ft_calloc ft_strdup ft_putchar_fd ft_putstr_fd \
+	ft_putnbr_fd ft_putendl_fd ft_strtrim ft_itoa ft_strmapi \
+	ft_strjoin ft_substr ft_split ft_lstnew ft_lstsize \
+	ft_lstadd_front ft_lstlast ft_lstadd_back ft_lstdelone\
+	ft_lstiter ft_lstmap ft_lstclear ft_swap ft_contains \
+	ft_str_contains_any ft_convert_to_hex ft_intlen ft_isnumeric \
+	ft_strchr_i ft_strcmp ft_strcpy
+OBJS = $(addsuffix .o, $(addprefix $(OBJSDIR),$(_OBJS)))
 CFLAGS = -Wall -Wextra -Werror -O2
-
-PRINT = \e[1;34mBuilding $<\e[0m
-
+_INCLUDES = libft
+INCLUDES = $(addsuffix .h, $(_INCLUDES))
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ $(AR) rcs $@ $^
+	@$(AR) rcs $@ $^
 	@echo "\nDone making $(NAME)\n"
 
-%.o: %.c $(HEADER_FILES)
-	@ $(CC) -c $(CFLAGS) -o $@ $<
+$(OBJSDIR)%.o: $(SRCSDIR)%.c $(INCLUDES)
+	@mkdir -p $(OBJSDIR)$(dir $*)
+	@$(CC) -Imlx -c $(CFLAGS) -o $@ $<
 
 clean:
 	@ rm -f $(OBJS)
 	@echo "\nDeleted LIBFT objects\n"
 
-fclean: clean
-	@ rm -f $(NAME)
+fclean: 
+	@$(MAKE) clean
+	@rm -f $(NAME)
 	@echo "\nDeleted $(NAME)\n"
 re: 
 	@echo Remaking$(LIBFT)
-	@ $(MAKE) fclean
-	@ $(MAKE) all
+	@$(MAKE) fclean
+	@$(MAKE) all
 
 .PHONY: all clean fclean re
