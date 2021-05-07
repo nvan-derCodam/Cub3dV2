@@ -6,7 +6,7 @@
 #    By: nvan-der <nvan-der@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/01/23 13:50:37 by nvan-der      #+#    #+#                  #
-#    Updated: 2021/05/07 07:55:38 by nvan-der      ########   odam.nl          #
+#    Updated: 2021/05/07 16:51:44 by nvan-der      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,10 +64,11 @@ $(NAME): $(MLXDYL) $(LIBFT) $(ALL_OBJS)
 	@$(CC) -L. -lmlx -lft $(FRAMEWORK) -o $(NAME) $(ALL_OBJS)
 
 clean:
-	@echo "\nDeleted SOURCE Objects\n"
+	@echo "\nDeleted SOURCE objects + norm.txt\n"
 	@rm -f $(OBJS) $(REG_OBJS) $(BONUS_OBJS)
 	@$(MAKE) -C libft/ clean
 	@$(MAKE) -C mlx/ clean
+	@rm -f norm.txt
 		
 
 sclean:
@@ -97,7 +98,11 @@ bre:
 	@$(MAKE) bonus
 
 bonus:
-		@echo "\nMaking $(NAME) Bonus\n"
-		@$(MAKE) BONUS=1
+	@echo "\nMaking $(NAME) Bonus\n"
+	@$(MAKE) BONUS=1
 
-.PHONY: all clean sclean fclean sre re bre bonus
+norm:
+	@echo "\nRunning norm and outputting to >> norm.txt\n"
+	@./norm.sh
+
+.PHONY: all clean sclean fclean sre re bre bonus norm
