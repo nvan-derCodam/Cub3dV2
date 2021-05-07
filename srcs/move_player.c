@@ -6,7 +6,7 @@
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/21 11:31:08 by nvan-der      #+#    #+#                 */
-/*   Updated: 2021/04/05 11:59:46 by nvan-der      ########   odam.nl         */
+/*   Updated: 2021/05/07 08:01:31 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	move_player(t_data *mlx)
 {
 	mlx->move.rot_speed = 0.04;
 	if (mlx->move.shift == 1)
-		mlx->move.move_speed = 1;
+		mlx->move.move_speed = 0.25;
 	else
 		mlx->move.move_speed = 0.05;
 	if (mlx->move.w == 1)
