@@ -6,7 +6,7 @@
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/07 11:05:08 by nvan-der      #+#    #+#                 */
-/*   Updated: 2021/04/05 13:41:06 by nvan-der      ########   odam.nl         */
+/*   Updated: 2021/05/12 09:54:08 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	check_valid_info_check(t_data *mlx)
 		mlx->map.check = mlx->map.check;
 }
 
-		// mlx->map.check = (mlx->map.check == 1) ? 2 : mlx->map.check; TODO
 void	check_valid_info(t_data *mlx, char *line)
 {
 	if (*line == ' ' || *(line + ft_strlen(line) - 1) == ' ')

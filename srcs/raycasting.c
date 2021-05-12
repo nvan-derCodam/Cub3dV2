@@ -6,7 +6,7 @@
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/21 16:52:56 by nvan-der      #+#    #+#                 */
-/*   Updated: 2021/03/29 17:21:10 by nvan-der      ########   odam.nl         */
+/*   Updated: 2021/05/12 09:54:24 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void	check_draw_coords(t_data *mlx)
 			ray->side_hit = 3;
 	}
 }
-//^^^ ray->side_hit = (ray->ray.x > 0) ? 0 : 2;
-// ray->side_hit = (ray->ray.y > 0) ? 1 : 3; TODO
 
 /*
 **		Calculates the distance to a wall.

@@ -6,7 +6,7 @@
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/05 13:49:46 by nvan-der      #+#    #+#                 */
-/*   Updated: 2021/03/29 17:18:05 by nvan-der      ########   odam.nl         */
+/*   Updated: 2021/05/12 09:54:29 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 **		Constantly checks, calculates and draws the game.
 */
 
-//cur_img = (mlx->active_img) ? &mlx->img1 : &mlx->img2; TODO Line 26/27
 int	frame_loop(t_data *mlx)
 {
 	int		x;

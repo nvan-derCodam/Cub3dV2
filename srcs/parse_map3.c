@@ -6,7 +6,7 @@
 /*   By: nvan-der <nvan-der@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/11 15:31:37 by nvan-der      #+#    #+#                 */
-/*   Updated: 2021/03/29 16:34:30 by nvan-der      ########   odam.nl         */
+/*   Updated: 2021/05/12 09:54:14 by nvan-der      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,6 @@ char	*find_player_pos(t_data *mlx, char *str)
 **		Main function about creating the map.
 */
 
-	// mlx->map.size.x = (len > mlx->map.size.x) ? len : mlx->map.size.x; TODO
 void	map_information(t_data *mlx, char *line)
 {
 	char	*new_line;
